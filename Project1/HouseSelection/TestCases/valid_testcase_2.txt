@@ -1,0 +1,39 @@
+# TEST CASE 2
+# Steph Curry, a full-time freshman student who is out of state.
+# No academic or disciplinary on record.
+# Stable Housing
+# Expected: 11
+
+# Name
+Steph Curry
+
+# Do you require disability-related housing accommodations?
+# (1: Yes, 2: No)
+2
+
+# What is your current class year?
+# (1: Freshman 2: Sophomore 3: Junior 4: Senior+)
+1
+
+# What is your current residency status?
+# (1: Local 2: In-State 3: Out of State 4: International)
+4
+
+# (IF LOCAL) Since you are a local student, to the best of your ability, how much time does it take you to commute to campus?
+# (1: Less than 60 minutes. 2: Between 60 - 90 Minutes. 3: 91 Minutes or longer)
+
+# What is your current enrollment status?
+# (1: Part Time, 2: Full time)
+2
+
+# What is your current academic standing?
+# (1: Good 2: First Academic Probation 3: Repeated Academic Probation)
+1
+
+# What is your current disciplinary standing?
+# (1: Good Disciplinary Standing 2: Minor Disciplinary Probation 3: Serious Disciplinary Probation)
+1
+
+# Which statement best describes your current housing situation?
+# (1: Stable and reliable housing | 2: Currently have housing but am at risk of losing it | 3: Currently live in temporary or unstable housing | 4: Currently experiencing homelessness)
+1
