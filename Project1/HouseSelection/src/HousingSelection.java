@@ -4,16 +4,16 @@ public class HousingSelection {
 
     public static int validateIntChoice(Scanner input, int minChoice, int maxChoice) {
         if (!input.hasNextInt()) {
-            System.err.println("Please the number corresponding from one of the choices");
+            System.err.println("Please enter the number corresponding from one of the choices");
             System.exit(1);
         }
         int rawInput = input.nextInt();
         if (rawInput < minChoice || rawInput > maxChoice) {
-            System.err.println("Please the number corresponding from one of the choices");
+            System.err.println("Please enter the number corresponding from one of the choices");
             System.exit(1);
         }
         return rawInput;
-    };
+    }
 
 
     public static void main(String[] args) {
@@ -80,11 +80,10 @@ public class HousingSelection {
             System.out.print("""
                 \nSince you are a local student, to the best of your ability, how much time does it take you to commute to campus?
                 1: Less than 60 minutes.
-                2: Between 60 - 90 Minutes.
-                3: 91 Minutes or longer
+                2: Between 60 - 89 Minutes.
+                3: 90 Minutes or longer
                 Selection:""" + " ");
             localCommuter = validateIntChoice(input, 1, 3);
-
         }
 
         // Enrollment
@@ -125,7 +124,7 @@ public class HousingSelection {
 
         input.close();
 
-        // Aggregate score
+        // Aggregate housing score.
         if (isADA == 1) {
             housingScore += 5;
         }
@@ -173,24 +172,24 @@ public class HousingSelection {
                 break;
             case 2:
                 housingScore += 2;
-
+                break;
         }
 
         switch (academicStanding) {
             case 2:
-                housingScore += -1;
+                housingScore -= 1;
                 break;
             case 3:
-                housingScore += -2;
+                housingScore -= 2;
                 break;
         }
 
         switch (disciplinaryStanding) {
             case 2:
-                housingScore += -3;
+                housingScore -= 3;
                 break;
             case 3:
-                housingScore += -4;
+                housingScore -= 4;
                 break;
         }
 
@@ -204,6 +203,12 @@ public class HousingSelection {
             case 4:
                 housingScore += 3;
                 break;
+        }
+
+        // Students could face Academic Probation based on housing stability;
+        // adding a point to offset academic probation
+        if (academicStanding >= 2 && housingStability >= 3) {
+            housingScore += 1;
         }
 
         if (housingScore <= 5) {
