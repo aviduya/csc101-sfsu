@@ -8,7 +8,7 @@ javac -d "$PROJECT_DIR/build" "$PROJECT_DIR/src"/*.java || exit 1
 
 clear
 
-for testfile in "$PROJECT_DIR/TestCases"/*.txt; do
+for testfile in "$PROJECT_DIR/tests"/*.txt; do
     echo "=============================="
     echo "Running: $(basename "$testfile")"
     echo "=============================="
