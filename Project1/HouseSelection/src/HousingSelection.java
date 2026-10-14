@@ -4,7 +4,7 @@ public class HousingSelection {
 
     public static int validateIntChoice(Scanner input, int minChoice, int maxChoice) {
         if (!input.hasNextInt()) {
-            System.err.println("Please enter the number corresponding from one of the choices");
+            System.err.println("Please enter a valid choice");
             System.exit(1);
         }
         int rawInput = input.nextInt();
@@ -14,7 +14,6 @@ public class HousingSelection {
         }
         return rawInput;
     }
-
 
     public static void main(String[] args) {
         String name;
