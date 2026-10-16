@@ -17,17 +17,18 @@ public class HousingSelection {
 
     public static void main(String[] args) {
         String name;
+        String housingPriority;
+
         int isADA;
         int currentYear;
         int residencyStatus;
-        int localCommuter = 0;
         int enrollmentStatus;
         int academicStanding;
         int disciplinaryStanding;
         int housingStability;
-
+        int localCommuter = 0;
         int housingScore = 0;
-        String housingPriority;
+
 
         // Greeting
         Scanner input = new Scanner(System.in);
@@ -210,6 +211,10 @@ public class HousingSelection {
             housingScore += 1;
         }
 
+        // The Point range total would be -4 < housingScore < 19
+        // housingScore < 5 = LOW
+        // 5 < housingScore < 11 = MEDIUM
+        // housingScore > 11 = HIGH
         if (housingScore <= 5) {
             housingPriority = "LOW";
         } else if (housingScore <= 11) {

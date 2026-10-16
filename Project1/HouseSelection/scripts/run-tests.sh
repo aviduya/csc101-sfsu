@@ -13,7 +13,6 @@ for testfile in "$PROJECT_DIR/tests"/*.txt; do
     echo "Running: $(basename "$testfile")"
     echo "=============================="
 
-
     java -cp "$PROJECT_DIR/build" HousingSelection \ < <(sed '/^[[:space:]]*#/d' "$testfile")
 
     exit_code=$?
