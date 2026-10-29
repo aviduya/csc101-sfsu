@@ -9,11 +9,13 @@ public class NumberGuessingGame {
         int numberToGuess = new Random().nextInt(1, 101);
         Scanner input = new Scanner(System.in);
 
+        System.out.println("Welcome to the number guessing game!\n");
+
         while(!isGuessed) {
             System.out.print("Please guess a number between 1 and 100: ");
 
             if (!input.hasNextInt()) {
-                System.out.println("Invalid Input, please try again");
+                System.out.println("Invalid input. Please try again");
                 input.next();
                 continue;
             }
@@ -30,7 +32,7 @@ public class NumberGuessingGame {
             } else if (userGuess > numberToGuess) {
                 System.out.println("Your guess is too high, try again");
             } else {
-                System.out.print("Correct!");
+                System.out.print("Correct! The Number to guess is " + numberToGuess);
                 isGuessed = true;
             }
         }
