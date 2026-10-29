@@ -211,7 +211,7 @@ public class HousingSelection {
             housingScore += 1;
         }
 
-        // The Point range total would be -4 < housingScore < 19
+        // Thejn Point range total would be -4 < housingScore < 19
         // housingScore < 5 = LOW
         // 5 < housingScore < 11 = MEDIUM
         // housingScore > 11 = HIGH
