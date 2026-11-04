@@ -70,5 +70,13 @@ public class Problems {
 
     }
 
+    public void q6() {
+        int i = 0;
+        while (i < 20) {
+
+        }
+    }
+
+
 
 }
