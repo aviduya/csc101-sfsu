@@ -1,13 +1,11 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class CCValidator {
     public static void main(String[] args) {
         long ccNumber;
-        boolean isValidNumber = false;
         Scanner input = new Scanner(System.in);
 
-        while(!isValidNumber) {
+        while(true) {
             System.out.print("Please enter a credit card number:");
 
             if (!input.hasNextLong()) {
@@ -17,29 +15,29 @@ public class CCValidator {
             }
             ccNumber = input.nextLong();
 
-            // type cast for string arr.
+            // type cast from long to string.
             String ccNumberString = Long.toString(ccNumber);
 
             if (ccNumberString.length() < 13 || ccNumberString.length() > 16) {
-                System.out.println(ccNumber + " Is not a valid credit card number");
-                continue;
+                System.out.println(ccNumber + " is an invalid credit card number.");
+                return;
             }
 
             // get prefix
-            int prefix = ccNumberString.charAt(0);
+            char prefix = ccNumberString.charAt(0);
 
             switch(prefix) {
                 case '4', '5', '3', '6':
                     // If is 3 but 7 does not follow, invalid
                     if (prefix == '3' && ccNumberString.charAt(1) != '7') {
-                        System.out.println(ccNumber + " Is not a valid credit card number");
-                        continue;
+                        System.out.println(ccNumber + " is an invalid credit card number.");
+                        return;
                     }
                     int total1 = 0;
                     int total2 = 0;
 
-                    for (int i = 0; i < ccNumberString.length(); i += 2) {
-                        int modifiedParsedInt = Integer.parseInt(String.valueOf(ccNumberString.charAt(i))) * 2;
+                    for (int i = ccNumberString.length() - 2; i >= 0; i -= 2) {
+                        int modifiedParsedInt = (ccNumberString.charAt(i) - '0') * 2;
 
                         if (modifiedParsedInt >= 10) {
                             // If at or greater than 10, parse to string again,
@@ -55,26 +53,21 @@ public class CCValidator {
                         }
                     }
 
-                    for (int i = 1; i < ccNumberString.length(); i += 2) {
-                        total2 += Integer.parseInt(String.valueOf(ccNumberString.charAt(i)));
+                    for (int i = ccNumberString.length() - 1; i >= 0; i -= 2) {
+                        total2 += (ccNumberString.charAt(i) - '0');
                     }
-
-                    IO.println(total1);
-                    IO.println(total2);
 
                     if ((total1 + total2) % 10 != 0) {
-                        System.out.println(ccNumber + " Is not a valid credit card number");
-                        continue;
+                        System.out.println(ccNumber + " is an invalid credit card number.");
+                        return;
                     }
 
-                    System.out.println(ccNumber + " Is a valid credit card number");
-
-
-                    isValidNumber = true;
-                    break;
+                    System.out.println(ccNumber + " is a valid credit card number.");
+                    return;
 
                 default:
-                    System.out.println(ccNumber + " Is not a valid credit card number");
+                    System.out.println(ccNumber + " is an invalid credit card number.");
+                    return;
 
             }
 
